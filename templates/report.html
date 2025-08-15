@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results | Brain Tumor Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Brain Tumor Detection</h1>
+            </div>
+            <nav>
+                <a href="{{ url_for('index') }}" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Back to Scanner
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="results-container">
+        {% if prediction %}
+        <section class="results-card">
+            <h2><i class="fas fa-diagnoses"></i> Scan Results</h2>
+            
+            <div class="result-content">
+                <div class="diagnosis {{ prediction.lower().replace(' ', '-') }}">
+                    <h3>Diagnosis:</h3>
+                    <p class="result-value">{{ prediction }}</p>
+                    {% if prediction != "No Tumor" %}
+                    <p class="alert-message">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        Tumor detected - Please consult a specialist
+                    </p>
+                    {% else %}
+                    <p class="success-message">
+                        <i class="fas fa-check-circle"></i> 
+                        No tumor detected
+                    </p>
+                    {% endif %}
+                </div>
+
+      
+
+            <div class="scan-visualization">
+                <h3><i class="fas fa-image"></i> MRI Scan</h3>
+                <div class="scan-image-container">
+                    <img src="{{ img_path }}" alt="MRI Scan Result">
+                    {% if prediction != "No Tumor" %}
+                    <div class="tumor-highlight"></div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="{{ url_for('index') }}" class="btn new-scan-btn">
+                    <i class="fas fa-redo"></i> New Scan
+                </a>
+            </div>
+        </section>
+        {% else %}
+        <div class="no-results">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>No scan results available</p>
+            <a href="{{ url_for('index') }}" class="btn">
+                <i class="fas fa-arrow-left"></i> Back to Scanner
+            </a>
+        </div>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>Brain Tumor Detection System | For research purposes only</p>
+    </footer>
+</body>
+</html>

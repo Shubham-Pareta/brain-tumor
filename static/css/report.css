@@ -1,0 +1,224 @@
+/* Global Styles */
+:root {
+    --primary: #4ca1af;
+    --primary-dark: #2c3e50;
+    --danger: #ff6b6b;
+    --success: #06d6a0;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a8e6cf;
+}
+
+/* Results Container */
+.results-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.results-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.diagnosis {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid;
+}
+
+.diagnosis.glioma {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.diagnosis.meningioma {
+    border-color: #ffd166;
+    background-color: rgba(255, 209, 102, 0.1);
+}
+
+.diagnosis.pituitary {
+    border-color: #06d6a0;
+    background-color: rgba(6, 214, 160, 0.1);
+}
+
+.diagnosis.no-tumor {
+    border-color: #4ca1af;
+    background-color: rgba(76, 161, 175, 0.1);
+}
+
+.result-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.alert-message {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.success-message {
+    color: #06d6a0;
+    font-weight: 600;
+}
+
+.confidence-meter {
+    margin-top: 1.5rem;
+}
+
+.meter {
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.meter span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #4ca1af, #2c3e50);
+    border-radius: 5px;
+}
+
+.scan-image-container {
+    position: relative;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.scan-image-container img {
+    width: 100%;
+    display: block;
+}
+
+.tumor-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 107, 107, 0.2);
+    pointer-events: none;
+}
+
+.actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #4ca1af;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #2c3e50;
+    transform: translateY(-2px);
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.no-results i {
+    font-size: 3rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.no-results p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
